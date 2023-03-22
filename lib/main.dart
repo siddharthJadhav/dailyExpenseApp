@@ -1,3 +1,4 @@
+import 'package:daily_expense/shared/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'pages/splash_screen/splash_screen_view.dart';
 
@@ -15,9 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: MyAppTheme.theme,
       home: const SplashScreen(),
     );
   }
