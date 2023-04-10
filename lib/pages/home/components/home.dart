@@ -1,308 +1,374 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../shared/components/bottom_app_bar_view.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
   @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
-          title: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: const Text(
-              'Dashboard',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Color(0xFF696969)),
-            ),
-          )),
-      body: Container(
-        color: Colors.white,
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
-              height: 160,
-              width: MediaQuery.of(context).size.width,
-              child: Card(
-                  elevation: 10,
-                  shape: const RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Colors.white,
+      body: SafeArea(
+          bottom: true,
+          child: Container(
+            color: Colors.white,
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(
+                    left: 20,
+                    right: 20,
+                    top: 60,
+                  ),
+                  child: Row(children: [
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0xFF4236F1),
+                              Color(0xFF8743FF),
+                            ]),
+                      ),
+                      child: const Icon(
+                        Icons.person,
+                        color: Colors.white,
+                        size: 40,
+                      ),
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    Container(
+                      margin: const EdgeInsets.only(left: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text('Hello, Siddharth',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20,
+                                  color: Color(0xFF01031D))),
+                          Text(
+                            "Welcome back to you'r account.",
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 13,
+                                color: Colors.grey),
+                          )
+                        ],
+                      ),
+                    )
+                  ]),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(
+                      top: 30, left: 20, bottom: 30, right: 20),
+                  padding: const EdgeInsets.only(top: 30, bottom: 30),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    gradient: const LinearGradient(
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
+                        colors: [
+                          Color.fromARGB(255, 192, 11, 238),
+                          Color.fromARGB(175, 102, 37, 233),
+                          Color.fromARGB(227, 243, 129, 64),
+                        ],
+                        stops: [
+                          0.1,
+                          0.4,
+                          0.8
+                        ]),
                   ),
                   child: Column(
                     children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 10, bottom: 10),
-                        child: const Text(
-                          'Statistics',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
-                      ),
                       Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.only(left: 5),
-                            width: MediaQuery.of(context).size.width / 4 - 7,
-                            height: 100,
-                            child: Card(
-                              elevation: 5,
-                              shape: const RoundedRectangleBorder(
-                                side: BorderSide(
-                                  color: Colors.transparent,
-                                ),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(12)),
-                              ),
-                              color: const Color(0xFF170E6C),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RichText(
-                                    text: const TextSpan(
-                                        text: '30K',
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold),
-                                        children: [
-                                          TextSpan(
-                                              text: 'Rs',
-                                              style: TextStyle(fontSize: 12))
-                                        ]),
-                                  ),
-                                  const Text(
-                                    'Year',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.only(left: 5),
-                            width: MediaQuery.of(context).size.width / 4 - 7,
-                            height: 100,
-                            child: Card(
-                              elevation: 5,
-                              shape: const RoundedRectangleBorder(
-                                side: BorderSide(
-                                  color: Colors.transparent,
-                                ),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(12)),
-                              ),
-                              color: const Color(0xFF170E6C),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RichText(
-                                    text: const TextSpan(
-                                        text: '15K',
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold),
-                                        children: [
-                                          TextSpan(
-                                              text: 'Rs',
-                                              style: TextStyle(fontSize: 12))
-                                        ]),
-                                  ),
-                                  const Text(
-                                    'Month',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.only(left: 5),
-                            width: MediaQuery.of(context).size.width / 4 - 7,
-                            height: 100,
-                            child: Card(
-                              elevation: 5,
-                              shape: const RoundedRectangleBorder(
-                                side: BorderSide(
-                                  color: Colors.transparent,
-                                ),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(12)),
-                              ),
-                              color: const Color(0xFF170E6C),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RichText(
-                                    text: const TextSpan(
-                                        text: '2K',
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold),
-                                        children: [
-                                          TextSpan(
-                                              text: 'Rs',
-                                              style: TextStyle(fontSize: 12))
-                                        ]),
-                                  ),
-                                  const Text(
-                                    'Week',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.only(left: 5, right: 5),
-                            width: MediaQuery.of(context).size.width / 4 - 7,
-                            height: 100,
-                            child: Card(
-                              elevation: 5,
-                              shape: const RoundedRectangleBorder(
-                                side: BorderSide(
-                                  color: Colors.transparent,
-                                ),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(12)),
-                              ),
-                              color: const Color(0xFF170E6C),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  RichText(
-                                    text: const TextSpan(
-                                        text: '100',
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold),
-                                        children: [
-                                          TextSpan(
-                                              text: 'Rs',
-                                              style: TextStyle(fontSize: 12))
-                                        ]),
-                                  ),
-                                  const Text(
-                                    'Day',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20, top: 30, bottom: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Expense',
-                    style: TextStyle(fontSize: 25, color: Colors.grey),
-                  ),
-                  InkWell(
-                      onTap: () {},
-                      child: const Icon(
-                        Icons.filter_alt,
-                        color: Color(0xFF170E6C),
-                        size: 30,
-                      ))
-                ],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height - 336,
-              child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      margin: const EdgeInsets.only(left: 20, right: 20),
-                      height: 100,
-                      child: Card(
-                        elevation: 5,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Total Balance',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xA3FFFFFF),
+                                  fontSize: 13),
+                            )
+                          ]),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              '66000',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700),
+                            )
+                          ]),
+                      Container(
+                        margin:
+                            const EdgeInsets.only(top: 20, left: 20, right: 20),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              margin: const EdgeInsets.all(10),
-                              width: 100,
-                              child: RichText(
-                                text: const TextSpan(
-                                    text: '100',
-                                    style: TextStyle(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.grey),
-                                    children: [
-                                      TextSpan(
-                                          text: 'Rs',
-                                          style: TextStyle(fontSize: 12))
-                                    ]),
-                              ),
+                            Column(
+                              children: [
+                                Row(
+                                  children: const [
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 5),
+                                      child: Icon(
+                                        CupertinoIcons.arrow_down_circle_fill,
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Income',
+                                      style: TextStyle(
+                                        color: Color(0xA3FFFFFF),
+                                        fontFamily: 'Poppins',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Text(
+                                  '66000',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700),
+                                )
+                              ],
                             ),
                             Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text('Food',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.grey
-                                  ),
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(top: 5, bottom: 5),
-                                  child: const Text('Friday night dinner',
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      color: Color(0xFF8A8A8A)
+                                Row(
+                                  children: const [
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 5),
+                                      child: Icon(
+                                        CupertinoIcons.arrow_up_circle_fill,
+                                        color: Colors.red,
+                                      ),
                                     ),
-                                  ),
+                                    Text(
+                                      'Expense',
+                                      style: TextStyle(
+                                        color: Color(0xA3FFFFFF),
+                                        fontFamily: 'Poppins',
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                const Text('Firday 10:30 pm',
-                                 style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFFB4B3B3)
-                                  ),
-                                  )
+                                const Text(
+                                  '50000',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700),
+                                )
                               ],
                             )
                           ],
                         ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 20, right: 20),
+                  child: Row(
+                    children: const [
+                      Text(
+                        'Statistics',
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 20,
+                            color: Color.fromARGB(184, 139, 139, 139),
+                            fontWeight: FontWeight.w500),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Card(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width / 2 - 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Color(0xFF4236F1),
+                                  Color(0xFF8743FF),
+                                ]),
+                          ),
+                          padding: const EdgeInsets.all(20),
+                          child: Column(children: const [
+                            Text(
+                              '100',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            Text('Daily expense',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xA3FFFFFF),
+                                    fontSize: 13)),
+                          ]),
+                        ),
                       ),
-                    );
-                  }),
-            )
-          ],
+                      Card(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width / 2 - 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Color(0xFF4236F1),
+                                  Color(0xFF8743FF),
+                                ]),
+                          ),
+                          padding: const EdgeInsets.all(20),
+                          child: Column(children: const [
+                            Text(
+                              '1500',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            Text('Weekly expense',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xA3FFFFFF),
+                                    fontSize: 13)),
+                          ]),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 20, right: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Card(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width / 2 - 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Color(0xFF4236F1),
+                                  Color(0xFF8743FF),
+                                ]),
+                          ),
+                          padding: const EdgeInsets.all(20),
+                          child: Column(children: const [
+                            Text(
+                              '20k',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            Text('Montly expense',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xA3FFFFFF),
+                                    fontSize: 13)),
+                          ]),
+                        ),
+                      ),
+                      Card(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width / 2 - 30,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: const LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Color(0xFF4236F1),
+                                  Color(0xFF8743FF),
+                                ]),
+                          ),
+                          padding: const EdgeInsets.all(20),
+                          child: Column(children: const [
+                            Text(
+                              '50K',
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            Text('Yearly expense',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xA3FFFFFF),
+                                    fontSize: 13)),
+                          ]),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )),
+      floatingActionButton: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          gradient: const LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xFF4236F1),
+                Color(0xFF8743FF),
+              ]),
+        ),
+        child: FloatingActionButton(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          onPressed: () {
+            // Navigator.push(context,
+            //     CupertinoPageRoute(builder: (context) => const DialerView()));
+          },
+          child: const Icon(
+            Icons.add,
+            // Icons.currency_rupee,
+            size: 30,
+            weight: 1,
+          ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: const BottomAppBarView(activePageName: 'dialer'),
     );
   }
 }
